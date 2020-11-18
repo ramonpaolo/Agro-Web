@@ -1,0 +1,36 @@
+#login input {
+  border: 1px solid green;
+  border-radius: 20px;
+  padding: 8px;
+  margin: 10px;
+  outline-style: none;
+}
+
+#login {
+  margin-top: 40vh;
+  margin-bottom: 23vh;
+}
+
+#login button {
+  border: 1px solid green;
+  background-color: white;
+  border-radius: 20px;
+  height: 38px;
+  outline-style: none;
+  width: 200px;
+}
+
+#login button:hover {
+  background-color: green;
+  color: white;
+  transition-duration: 700ms;
+}
+
+#login a {
+  color: green;
+  text-decoration: none;
+}
+
+#login a:hover {
+  text-decoration: underline;
+}

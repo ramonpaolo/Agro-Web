@@ -1,0 +1,37 @@
+#cadastro input {
+    border: 1px solid green;
+    border-radius: 20px;
+    padding: 8px;
+    margin: 10px;
+    outline-style: none;
+  }
+  
+  #cadastro {
+    margin-top: 40vh;
+    margin-bottom: 23vh;
+  }
+  
+  #cadastro button {
+    border: 1px solid green;
+    background-color: white;
+    border-radius: 20px;
+    height: 38px;
+    outline-style: none;
+    width: 200px;
+  }
+  
+  #cadastro button:hover {
+    background-color: green;
+    color: white;
+    transition-duration: 700ms;
+  }
+  
+  #cadastro a {
+    color: green;
+    text-decoration: none;
+  }
+  
+  #cadastro a:hover {
+    text-decoration: underline;
+  }
+  
