@@ -44,6 +44,18 @@
 @media screen and (max-width: 1366px) {
   #footer {
     width: 100vw;
+    padding-left: 36vw;
+    height: 20vh;
+  }
+  #footer img {
+    width: 6vw;
+    height: 12vh;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #footer {
+    width: 100vw;
     padding-left: 24vw;
     height: 14vh;
   }

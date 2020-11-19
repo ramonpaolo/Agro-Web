@@ -23,6 +23,10 @@
   color: rgba(0, 200, 0, 0.7);
 }
 
+#product a{
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1920px) {
   #product {
     width: 15vw;
