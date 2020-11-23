@@ -17,12 +17,12 @@ export default class Login extends React.Component {
     }
 
     async login() {
-        await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-            console.log("User: " + user.user.email)
-            localStorage.setItem("email", user.user.email)
-            localStorage.setItem("name", user.user.displayName)
-            localStorage.setItem("emailVerified", user.user.emailVerified)
-            localStorage.setItem("photoURL", user.user.photoURL)
+        await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(async (user) => {
+            console.log("User: " + await user.user.email)
+            localStorage.setItem("email", await user.user.email)
+            localStorage.setItem("name", await user.user.displayName)
+            localStorage.setItem("emailVerified", await user.user.emailVerified)
+            localStorage.setItem("photoURL", await user.user.photoURL)
             window.location.reload()
         }).catch((error) => {
             console.log("Error: " + error)
@@ -36,7 +36,7 @@ export default class Login extends React.Component {
 
     render() {
         if (localStorage.getItem("email") != null) {
-            return <Redirect to="/user" />
+            return <Redirect to="/" />
         } else {
             return (
                 <div id="login">
@@ -46,14 +46,14 @@ export default class Login extends React.Component {
                                 <label>
                                     Email:
                         </label>
-                                <input type="email" value={this.state.email}
+                                <input type="email" value={this.state.email} required
                                     onChange={(e) => this.setState({ email: e.target.value })} />
                             </div>
                             <div>
                                 <label>
                                     Password:
                         </label>
-                                <input type="password" value={this.state.password}
+                                <input type="password" value={this.state.password} required
                                     onChange={(p) => this.setState({ password: p.target.value })} />
                             </div>
                             <button type="button" onClick={async () => await this.login()}>Logar</button>

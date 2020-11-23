@@ -5,6 +5,22 @@
     margin: 10px;
     outline-style: none;
   }
+
+  #cadastro input[type="file"]{
+    padding: 14px;
+    border: 1px green;
+    border-style: dashed;
+    border-radius: 30px;
+  }
+
+  #cadastro input[type="file"]::-webkit-file-upload-button {
+    background-color: white;
+    border: 1px solid green;
+    border-radius: 20px;
+    padding: 6px;
+    outline-style: none;
+  }
+
   
   #cadastro {
     margin-top: 40vh;
