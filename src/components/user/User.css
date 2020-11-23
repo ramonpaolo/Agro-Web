@@ -4,6 +4,53 @@
   border-radius: 1000px;
 }
 
+#user #name{
+  color: rgb(0, 190, 0);
+}
+
+#user input {
+  border: 1px solid green;
+  border-radius: 20px;
+  padding: 8px;
+  margin: 10px;
+  outline-style: none;
+}
+
+#user input[type="file"]{
+  padding: 14px;
+  border: 1px green;
+  border-style: dashed;
+  border-radius: 30px;
+}
+
+#user input[type="file"]::-webkit-file-upload-button {
+  background-color: white;
+  border: 1px solid green;
+  border-radius: 20px;
+  padding: 6px;
+  outline-style: none;
+}
+
+#user button {
+  border: 1px solid green;
+  background-color: white;
+  border-radius: 20px;
+  height: 38px;
+  outline-style: none;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+#user button:hover {
+  background-color: green;
+  color: white;
+  transition-duration: 700ms;
+}
+
+#user #image-user{
+  object-fit: cover;
+}
+
 @media screen and (max-width: 1920px) {
   #user #image-user {
     width: 30vw;
@@ -71,7 +118,7 @@
 @media screen and (max-width: 500px) {
   #user #image-user {
     width: 70vw;
-    height: 42vh;
+    height: 40vh;
   }
 }
 @media screen and (max-width: 400px) {
