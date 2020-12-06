@@ -28,6 +28,8 @@ export default class Home extends React.Component {
     render() {
         return (
             <div id="home">
+                <center>
+
                 <h1>Home</h1>
                 <div id="row">
                     {this.state.products.map((product) =>
@@ -36,6 +38,7 @@ export default class Home extends React.Component {
                             describe={product.describe} weight={product.weight} cep_origem={product.cep_origem}
                             views={product.views} key={product.id} />)}
                 </div>
+                </center>
             </div>
         )
     }
