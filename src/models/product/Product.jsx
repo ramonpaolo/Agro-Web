@@ -32,7 +32,7 @@ export default class Product extends React.Component {
                             produto: this.state
                           } }} >
                         <h2 id="title">{this.state.title}</h2>
-                        <h4 id="subtitle">{this.state.subtitle}</h4>
+                        <p id="subtitle">{this.state.subtitle}</p>
                         <h5 id="price">R${this.state.price}</h5>
                     </Link>
                 </center>
