@@ -1,0 +1,7 @@
+#searched-product{
+    padding: 20px;
+}
+#searched-product #image-product{
+    width: 20vw;
+    border-radius: 20px;
+}
