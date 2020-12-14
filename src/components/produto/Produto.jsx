@@ -2,7 +2,9 @@
 import React from "react";
 import { Circle, MapContainer, Popup, TileLayer } from "react-leaflet";
 import CoordenadasDoCep from "coordenadas-do-cep";
+import { calcularPrecoPrazo } from "correios-brasil";
 import Correios from "node-correios/lib/correios";
+import { ReloadOutlined } from "@ant-design/icons"
 
 //---- Styles
 import "leaflet/dist/leaflet.css";
@@ -27,7 +29,23 @@ export default class Product extends React.Component {
   }
 
   async calcCEP(cep) {
-    const correios = await new Correios();
+    const args = {
+      sCepOrigem: "18403040",
+      sCepDestino: "18403040",
+      nVlPeso: "1",
+      nCdFormato: "1",
+      nVlComprimento: "20",
+      nVlAltura: "20",
+      nVlLargura: "20",
+      nCdServico: ["04014", "04510"], //Array com os códigos de serviço
+      nVlDiametro: "0",
+    };
+
+    await calcularPrecoPrazo(args).then((response) => {
+      console.log(response);
+    });
+
+    /*const correios = await new Correios();
 
     await correios
       .calcPreco({
@@ -49,7 +67,7 @@ export default class Product extends React.Component {
       })
       .catch((error) => {
         console.log("Error: " + error);
-      });
+      }); */
   }
 
   async transformCepInLocation() {
@@ -86,7 +104,7 @@ export default class Product extends React.Component {
                 <button
                   id="calcular-frete"
                   type="button"
-                  onClick={() => this.calcCEP()}
+                  onClick={async () => await this.calcCEP()}
                 >
                   Calcular Frete
                 </button>
@@ -111,7 +129,9 @@ export default class Product extends React.Component {
     } else {
       return (
         <div>
-          <h2>Carregando</h2>
+          <center>
+            <ReloadOutlined spin style={{ fontSize: 60, marginBottom: 20, marginTop: 20,color:"green" }}></ReloadOutlined>
+          </center>
         </div>
       );
     }
