@@ -28,12 +28,16 @@ export default class Product extends React.Component {
                         <img id="image-product" src={this.state.images[0]} />
                     </figure>
                     <Link to={
-                        { pathname:"/produto",  state: {
-                            produto: this.state
-                          } }} >
+                        {
+                            pathname: "/produto", state: {
+                                produto: this.state
+                            }
+                        }} >
                         <h2 id="title">{this.state.title}</h2>
                         <h4 id="subtitle">{this.state.subtitle}</h4>
-                        <h5 id="price">R${this.state.price}</h5>
+                        <div id="circle">
+                            <h5 id="price">R${this.state.price}</h5>
+                        </div>
                     </Link>
                 </center>
             </div>

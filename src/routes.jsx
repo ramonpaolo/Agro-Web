@@ -17,7 +17,7 @@ export default class Routes extends React.Component {
   render() {
     return (
       <div>
-
+        <center>
         <BrowserRouter>
         {localStorage.getItem('email') != null ?
           <Nav /> : null }
@@ -34,6 +34,7 @@ export default class Routes extends React.Component {
             </Switch>}
         </BrowserRouter>
         <Footer />
+        </center>
       </div>
     );
   }

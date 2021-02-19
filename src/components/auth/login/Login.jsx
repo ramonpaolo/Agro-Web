@@ -1,5 +1,5 @@
 //---- Packages
-import React from 'react';
+import React, {Component} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 //---- Style
@@ -8,7 +8,7 @@ import "./Login.css"
 //---- Backend
 import firebase from "../../../backend/FirebaseService"
 
-export default class Login extends React.Component {
+export default class Login extends Component {
 
     state = {
         email: "",
@@ -16,21 +16,33 @@ export default class Login extends React.Component {
         error: ""
     }
 
+    showErrorMessage(error) {
+        console.log(error)
+        if (error === "The email address is badly formatted.") {
+            this.setState({ error: "O endereço de email digitado está mal formatado" })
+        } else if (error === "The password is invalid or the user does not have a password.") {
+            this.setState({ error: "A senha digitada está errada" })
+        } else if (error === "Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later.") {
+            this.setState({ error: "Conta desativada temporariamente por várias tentativas sem sucesso de login" })
+        }else if(error == "There is no user record corresponding to this identifier. The user may have been deleted."){
+            this.setState({error: "Usuário não existente"})
+        }
+    }
+
+    async setData(user) {
+        localStorage.setItem("email", await user.email)
+        localStorage.setItem("name", await user.displayName)
+        localStorage.setItem("emailVerified", await user.emailVerified)
+        localStorage.setItem("photoURL", await user.photoURL)
+    }
+
     async login() {
         await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(async (user) => {
             console.log("User: " + await user.user.email)
-            localStorage.setItem("email", await user.user.email)
-            localStorage.setItem("name", await user.user.displayName)
-            localStorage.setItem("emailVerified", await user.user.emailVerified)
-            localStorage.setItem("photoURL", await user.user.photoURL)
+            this.setData(user.user)
             window.location.reload()
         }).catch((error) => {
-            console.log("Error: " + error)
-            if (error === "Error: The email address is badly formatted.") {
-                this.setState({ error: "O endereço de email digitado está mal formatado" })
-            } else if (error === "Error: The password is invalid or the user does not have a password.") {
-                this.setState({ error: "A senha digitada está errada" })
-            }
+            this.showErrorMessage(error.message)
         })
     }
 
@@ -59,7 +71,8 @@ export default class Login extends React.Component {
                             <button type="button" onClick={async () => await this.login()}>Logar</button>
                         </form>
                         <br />
-                        {this.state.error !== "" ? this.state.error : null}
+                        <strong>
+                            {this.state.error !== "" ? this.state.error : null}</strong>
                         <br />
                         <span>Não tem uma conta?</span> <Link to="/cadastro">Cadastre-se</Link>
                     </center>

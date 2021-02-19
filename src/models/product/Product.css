@@ -1,9 +1,12 @@
 #product {
-  border: 1px solid green;
+  /*border: 1px solid green;*/
   border-radius: 20px;
   padding: 14px;
   box-sizing: border-box;
   margin-bottom: 20px;
+  transition: 0.2s;
+  box-shadow: 6px 6px 12px rgba(0, 190, 0, 0.3);
+  overflow: hidden;
 }
 #product #image-product {
   padding: 0px;
@@ -23,8 +26,13 @@
   color: rgba(0, 200, 0, 0.7);
 }
 
-#product a{
+#product a {
   text-decoration: none;
+}
+
+#product:hover {
+  transition: 0.5s;
+  transform: scale(1.1);
 }
 
 @media screen and (max-width: 1920px) {
@@ -32,7 +40,6 @@
     width: 15vw;
     height: 39vh;
     margin: 10px;
-
   }
   #product #image-product {
     max-width: 12vw;
@@ -81,7 +88,6 @@
     width: 44vw;
     height: 34vh;
     margin: 10px;
-
   }
   #product #image-product {
     max-width: 33vw;

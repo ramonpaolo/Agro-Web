@@ -12,6 +12,7 @@
 }
 
 #login button {
+  transition-duration: 700ms;
   border: 1px solid green;
   background-color: white;
   border-radius: 20px;
@@ -21,7 +22,7 @@
 }
 
 #login button:hover {
-  background-color: green;
+  background-color: rgb(82, 209, 82);
   color: white;
   transition-duration: 700ms;
 }
