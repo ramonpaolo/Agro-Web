@@ -24,7 +24,7 @@ export default class Login extends Component {
             this.setState({ error: "A senha digitada está errada" })
         } else if (error === "Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later.") {
             this.setState({ error: "Conta desativada temporariamente por várias tentativas sem sucesso de login" })
-        }else if(error == "There is no user record corresponding to this identifier. The user may have been deleted."){
+        }else if(error === "There is no user record corresponding to this identifier. The user may have been deleted."){
             this.setState({error: "Usuário não existente"})
         }
     }
@@ -34,6 +34,7 @@ export default class Login extends Component {
         localStorage.setItem("name", await user.displayName)
         localStorage.setItem("emailVerified", await user.emailVerified)
         localStorage.setItem("photoURL", await user.photoURL)
+        localStorage.setItem("uid", await user.uid)
     }
 
     async login() {

@@ -7,16 +7,9 @@ export default class Product extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log(props)
         this.state = {
-            title: props.title,
-            subtitle: props.subtitle,
-            price: props.price,
-            images: props.images,
-            category: props.category,
-            describe: props.describe,
-            views: props.views,
-            weight: props.weight,
-            cep_origem: props.cep_origem,
+            product: props
         }
     }
 
@@ -25,18 +18,18 @@ export default class Product extends React.Component {
             <div id="product">
                 <center>
                     <figure style={{ margin: 10 }}>
-                        <img id="image-product" src={this.state.images[0]} />
+                        <img id="image-product" src={this.state.product.image[0]} />
                     </figure>
                     <Link to={
                         {
                             pathname: "/produto", state: {
-                                produto: this.state
+                                product: this.state.product
                             }
                         }} >
-                        <h2 id="title">{this.state.title}</h2>
-                        <h4 id="subtitle">{this.state.subtitle}</h4>
+                        <h2 id="title">{this.state.product.title}</h2>
+                        <h4 id="subtitle">{this.state.product.subtitle}</h4>
                         <div id="circle">
-                            <h5 id="price">R${this.state.price}</h5>
+                            <h5 id="price">R${this.state.product.price}</h5>
                         </div>
                     </Link>
                 </center>

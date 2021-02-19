@@ -1,24 +1,21 @@
 //---- Packages
-import React, { Component } from "react";
-import { Circle, MapContainer, Popup, TileLayer } from "react-leaflet";
-import CoordenadasDoCep from "coordenadas-do-cep";
-
-//---- Icons
-import { ReloadOutlined } from "@ant-design/icons"
+import React from "react"
+import { Circle, MapContainer, Popup, TileLayer } from "react-leaflet"
+import CoordenadasDoCep from "coordenadas-do-cep"
 
 //---- Styles
-import "leaflet/dist/leaflet.css";
-import "./Produto.css";
+import "./Search.css"
+import { ReloadOutlined } from "@ant-design/icons"
 
-export default class Product extends Component {
+export default class Search extends React.Component {
     constructor(props) {
-        super(props);
-        console.log(props.location.state.product)
+        super(props)
+        console.log(props.history.location.state.search)
         this.state = {
-            product: props.location.state.product,
+            product: props.history.location.state.search,
             lat: 0.0,
-            lon: 0.0,
-        };
+            lon: 0.0
+        }
     }
 
     async transformCepInLocation() {

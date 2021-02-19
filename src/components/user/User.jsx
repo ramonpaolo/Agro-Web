@@ -1,34 +1,43 @@
+//--- Packages
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+//--- Backend
 import firebase from '../../backend/FirebaseService'
 
 //---- Style
 import "./User.css"
 
+const user = firebase.auth().currentUser
+
 export default class User extends React.Component {
     state = { photoURL: null, name: "", file: {}, updateData: false }
 
     async componentDidMount() {
-        await firebase.auth().currentUser.photoURL
-        this.setState({ photoURL: localStorage.getItem("photoURL") })
-        this.setState({ name: localStorage.getItem("name") })
+        this.setState({ photoURL: await localStorage.getItem("photoURL") })
+        this.setState({ name: localStorage.getItem("name") == null ? await user.displayName : localStorage.getItem("name") })
     }
 
-    async updateDatas() {
-        const user = firebase.auth().currentUser
-        await firebase.storage().ref("photoUsers").child(await user.uid).put(this.state.file)
-        await firebase.storage().ref("photoUsers").child(await user.uid).getDownloadURL();
-        user.updateProfile({ photoURL: await firebase.storage().ref("photoUsers").child(await user.uid).getDownloadURL(), displayName: this.state.name })
-        localStorage.setItem("photoURL", await firebase.storage().ref("photoUsers").child(await user.uid).getDownloadURL())
-        this.setState({updateData: true})
+    async updateData() {
+        if (this.state.file !== undefined) {
+            await firebase
+                .storage()
+                .ref("photoUsers")
+                .child(await localStorage.getItem("uid"))
+                .put(this.state.file)
+            await user.updateProfile({ photoURL: await firebase.storage().ref("photoUsers").child(await localStorage.getItem("uid")).getDownloadURL(), displayName: this.state.name })
+            localStorage.setItem("photoURL", await firebase.storage().ref("photoUsers").child(await user.uid).getDownloadURL())
+        }
+        await user.updateProfile({ displayName: this.state.name })
+        localStorage.setItem("name", this.state.name)
+        this.setState({ updateData: true })
         window.location.reload()
     }
 
-    async deslogar(){
+    async logOut() {
         await firebase.auth().signOut()
         localStorage.clear()
-        this.setState({updateData: true})
+        this.setState({ updateData: true })
         window.location.reload()
     }
 
@@ -61,12 +70,12 @@ export default class User extends React.Component {
                                                 onChange={(n) => this.setState({ name: n.target.value })} />
                                         </label>
                                     </div>
-                                    <button type="button" onClick={async () => await this.updateDatas()}>Atualizar dados</button>
+                                    <button type="button" onClick={async () => await this.updateData()}>Atualizar dados</button>
                                 </form>
                             </div>
-                        <div>
-                            <h5 onClick={async () => await this.deslogar()}>Deslogar</h5>
-                        </div>
+                            <div>
+                                <h5 onClick={async () => await this.logOut()}>Deslogar</h5>
+                            </div>
                         </center>
                     </div>
                 )

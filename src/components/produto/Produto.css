@@ -33,6 +33,7 @@
   height: 30px;
   margin-top: 10px;
 }
+
 #info-product #calcular-frete:hover {
   background-color: white;
   color: rgb(0, 200, 0);
@@ -79,6 +80,7 @@
   text-align: center;
   position: relative;
   display: flex;
+  margin-bottom: 20px;
 }
 
 #images-left-small #image-small {
@@ -96,12 +98,14 @@
     width: 60vw;
     height: 54vh;
   }
+
   #info-product {
     align-items: flex-start;
     display: flex;
     float: right;
     margin-right: 22vw;
   }
+  
   #info-product #image-product {
     max-width: 40vw;
     max-height: 40vh;
@@ -135,7 +139,7 @@
     height: 46vh;
   }
   #info-product #image-product {
-    max-width: 70vw;
+    max-width: 50vw;
     max-height: 40vh;
   }
 }
@@ -145,7 +149,7 @@
     height: 50vh;
   }
   #info-product #image-product {
-    max-width: 70vw;
+    max-width: 50vw;
     max-height: 40vh;
   }
 }
@@ -155,7 +159,7 @@
     height: 46vh;
   }
   #info-product #image-product {
-    max-width: 70vw;
+    max-width: 50vw;
     max-height: 40vh;
   }
 }

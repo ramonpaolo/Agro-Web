@@ -12,6 +12,7 @@ import Product from './components/produto/Produto';
 //---- Models
 import Nav from './models/nav/Nav';
 import Footer from './models/footer/Footer';
+import Search from './components/search/Search';
 
 export default class Routes extends React.Component {
   render() {
@@ -28,6 +29,7 @@ export default class Routes extends React.Component {
               <Route exact path='/login' component={Login} />
               <Route exact path='/cadastro' component={Cadastro} />
               <Route exact path='/produto' component={Product} />
+              <Route exact path="/search" component={Search}/>
             </Switch> : <Switch>
               <Route exact path='/' component={Login} />
               <Route path='/cadastro' component={Cadastro} />

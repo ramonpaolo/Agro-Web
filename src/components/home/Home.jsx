@@ -36,7 +36,7 @@ export default class Home extends React.Component {
                         <div id="row">
                             {this.state.products.map((product) =>
                                 <Product title={product.title} subtitle={product.subtitle}
-                                    price={product.price} images={product.image} category={product.category}
+                                    price={product.price} image={product.image} category={product.category}
                                     describe={product.describe} weight={product.weight} cep_origem={product.cep_origem}
                                     views={product.views} key={product.id} />)}
                         </div>
