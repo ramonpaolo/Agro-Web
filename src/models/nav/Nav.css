@@ -17,7 +17,6 @@
   display: flex;
   height: 4vh;
   padding: 10px;
-  width: 100vw;
   align-items: center;
 }
 
@@ -25,7 +24,7 @@
   align-self: center;
   border-radius: 14px;
   border: 1px solid white;
-  height: 3.5vh;
+  height: 4vh;
   outline-style: none;
   padding-left: 10px;
   width: 50vw;
@@ -35,11 +34,17 @@
   #nav input {
     width: 20vw;
   }
+  #nav nav {
+    width: 98vw;
+  }
 }
 
 @media screen and (max-width: 1366px) {
   #nav input {
     width: 30vw;
+  }
+  #nav nav {
+    width: 95vw;
   }
 }
 
@@ -47,17 +52,25 @@
   #nav input {
     width: 40vw;
   }
+  #nav nav {
+    width: 95vw;
+  }
 }
 
 @media screen and (max-width: 600px) {
   #nav input {
     width: 50vw;
   }
+  #nav nav {
+    width: 95vw;
+  }
 }
 @media screen and (max-width: 500px) {
   #nav input {
-    height: 4vh;
+    height: 32px;
     width: 45vw;
   }
+  #nav nav {
+    width: 95vw;
+  }
 }
-

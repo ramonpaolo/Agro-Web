@@ -8,6 +8,7 @@ import User from './components/user/User';
 import Login from './components/auth/login/Login';
 import Cadastro from './components/auth/cadastro/Cadastro';
 import Product from './components/produto/Produto';
+import Search from './components/search/Search';
 
 //---- Models
 import Nav from './models/nav/Nav';
@@ -20,8 +21,8 @@ export default class Routes extends React.Component {
       <div>
         <center>
         <BrowserRouter>
-        {localStorage.getItem('email') != null ?
-          <Nav /> : null }
+          {localStorage.getItem('email') != null ?
+            <Nav /> : null}
           {localStorage.getItem('email') != null ?
             <Switch>
               <Route exact path='/' component={Home} />

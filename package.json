@@ -6,6 +6,10 @@
     "@ant-design/icons": "^4.4.0",
     "axios": "^0.21.0",
     "coordenadas-do-cep": "^1.2.0",
+<<<<<<< HEAD
+=======
+    "correios-brasil": "^2.1.0",
+>>>>>>> 4727d4bb2c1976ade9d8211017d9d0d2063b77ff
     "firebase": "^8.0.2",
     "firebase-tools": "^8.16.2",
     "leaflet": "^1.7.1",

@@ -16,10 +16,12 @@
 
 #product #title {
   color: rgb(0, 190, 0);
+  font-size: 18px;
 }
 
 #product #subtitle {
   color: rgb(0, 220, 0);
+  font-size: 1em;
 }
 
 #product #price {
@@ -61,7 +63,7 @@
 
 @media screen and (max-width: 1366px) {
   #product {
-    width: 24vw;
+    width: 23vw;
     height: 45vh;
     margin: 10px;
   }
@@ -95,6 +97,19 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  #product {
+    width: 44vw;
+    height: 36vh;
+    margin: 10px;
+
+  }
+  #product #image-product {
+    max-width: 33vw;
+    max-height: 14vh;
+  }
+}
+
 @media screen and (max-width: 600px) {
   #product {
     width: 42vw;
@@ -120,8 +135,11 @@
 @media screen and (max-width: 400px) {
   #product {
     width: 42vw;
-    height: 33vh;
+    height: 70vw;
     margin: 10px;
+  }
+  #product #subtitle {
+    font-size: 14px;
   }
   #product #image-product {
     max-width: 30vw;

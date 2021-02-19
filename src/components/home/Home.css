@@ -1,5 +1,5 @@
 #home #row {
-  padding: 0px 10px 0px 10px;
+  padding-left: 8px;
   display: flex;
   flex-wrap: wrap;
 }
